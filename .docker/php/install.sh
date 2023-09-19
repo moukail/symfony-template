@@ -6,7 +6,7 @@ echo "-------------------------------------------------------------------"
 symfony self:version
 
 export APP_ENV=dev
-symfony new web --version=5.4 #--full
+symfony new web --no-git --version=5.4 --php=8.2 --docker=false
 
 echo "-------------------------------------------------------------------"
 echo "-                   require packages                              -"
