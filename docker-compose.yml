@@ -1,0 +1,51 @@
+version: '3.9'
+services:
+  web:
+    container_name: rbac-web
+    user: root
+    build:
+      context: .docker/php
+      dockerfile: Dockerfile
+    expose:
+      - 8000
+    volumes:
+      - ./web:/var/www
+      #- vendor:/var/www/vendor
+    environment:
+      - APP_ENV=dev
+      - APP_DEBUG=1
+      - PHP_IDE_CONFIG=serverName=rbac-web
+      - DATABASE_URL=mysql://root:root@contacts-database:3306/rbac
+    #env_file:
+    #  - ./web/.env.develop
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - database
+      - redis
+    tty: true
+
+  database:
+    image: mysql:8.1
+    container_name: rbac-database
+    ports:
+      - 3306
+    expose:
+      - 3306
+    volumes:
+      - database:/var/lib/mysql
+      #- ./.docker/data:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=rbac
+
+volumes:
+  database:
+    driver: local
+  vendor:
+    driver: local
+
+networks:
+  default:
+    name: moukail
+    external: true
