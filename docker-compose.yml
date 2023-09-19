@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   web:
-    container_name: rbac-web
+    container_name: myproject-web
     user: root
     build:
       context: .docker/php
@@ -14,20 +14,19 @@ services:
     environment:
       - APP_ENV=dev
       - APP_DEBUG=1
-      - PHP_IDE_CONFIG=serverName=rbac-web
-      - DATABASE_URL=mysql://root:root@contacts-database:3306/rbac
+      - PHP_IDE_CONFIG=serverName=myproject-web
+      - DATABASE_URL=mysql://root:root@contacts-database:3306/myproject
     #env_file:
-    #  - ./web/.env.develop
+    #  - ./web/.env.local
     extra_hosts:
       - "host.docker.internal:host-gateway"
     depends_on:
       - database
-      - redis
     tty: true
 
   database:
     image: mysql:8.1
-    container_name: rbac-database
+    container_name: myproject-database
     ports:
       - 3306
     expose:
@@ -37,7 +36,7 @@ services:
       #- ./.docker/data:/docker-entrypoint-initdb.d
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=rbac
+      - MYSQL_DATABASE=myproject
 
 volumes:
   database:
