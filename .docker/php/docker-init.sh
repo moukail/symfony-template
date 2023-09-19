@@ -32,7 +32,7 @@ symfony composer update --no-interaction #--no-plugins --no-scripts
 echo "-------------------------------------------------------------------"
 echo "-                        waiting for DB                           -"
 echo "-------------------------------------------------------------------"
-while ! nc -z rbac-database 3306; do sleep 1; done
+while ! nc -z myproject-database 3306; do sleep 1; done
 echo "-------------------------------------------------------------------"
 echo "-                        prepare the DB                           -"
 echo "-------------------------------------------------------------------"
