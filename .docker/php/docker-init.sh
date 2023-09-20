@@ -23,11 +23,8 @@ export APP_ENV=dev
 echo "-----------------------------------------------------------------------------------------------------------------"
 echo "-                                                composer                                                       -"
 echo "-----------------------------------------------------------------------------------------------------------------"
-symfony composer -n check-platform-reqs
 symfony composer update --no-interaction #--no-plugins --no-scripts
-#security-checker security:check
-#symfony check:security
-#symfony console about
+symfony composer -n check-platform-reqs
 
 echo "-------------------------------------------------------------------"
 echo "-                        waiting for DB                           -"
@@ -96,7 +93,8 @@ chmod -R a+rw ./
 symfony local:php:list
 symfony local:php:refresh
 symfony check:requirements
-symfony security:check
+symfony check:security
+symfony console about
 #echo | symfony server:ca:install
 #symfony serve --p12=/var/www/certs/localhost.p12
 symfony serve
