@@ -11,10 +11,10 @@ fi
 #npm install --global browser-sync
 #npm run dev
 
-export APP_ENV=dev
+#export APP_ENV=dev
 #rm -rf var vendor composer.lock symfony.lock
 #cp .env.local .env
-#echo "8.2" > .php-version
+echo "8.2" > .php-version
 
 #symfony --no-interaction self:update
 #symfony self:version
