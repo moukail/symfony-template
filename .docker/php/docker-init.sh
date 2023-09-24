@@ -29,7 +29,7 @@ symfony composer -n check-platform-reqs
 echo "-------------------------------------------------------------------"
 echo "-                        waiting for DB                           -"
 echo "-------------------------------------------------------------------"
-while ! nc -z myproject-database 3306; do sleep 1; done
+while ! nc -z $DATABASE_HOST 3306; do sleep 1; done
 echo "-------------------------------------------------------------------"
 echo "-                        prepare the DB                           -"
 echo "-------------------------------------------------------------------"
