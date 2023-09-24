@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   web:
-    container_name: myproject-web
+    container_name:$HOST_NAME
     user: root
     build:
       context: .docker/php
@@ -11,15 +11,8 @@ services:
     volumes:
       - ./web:/var/www
       #- vendor:/var/www/vendor
-    environment:
-      - APP_ENV=dev
-      - APP_DEBUG=1
-      - PHP_IDE_CONFIG=serverName=myproject-web
-      - DATABASE_HOST=myproject-database
-      - DATABASE_PORT=3306
-      - DATABASE_URL=mysql://root:root@myproject-database:3306/myproject
-    #env_file:
-    #  - ./web/.env.local
+    env_file:
+      - ./.env
     extra_hosts:
       - "host.docker.internal:host-gateway"
     depends_on:
@@ -28,17 +21,17 @@ services:
 
   database:
     image: mysql:8.1
-    container_name: myproject-database
+    container_name: $DATABASE_HOST
     ports:
-      - 3306
+      - $DATABASE_PORT
     expose:
-      - 3306
+      - $DATABASE_PORT
     volumes:
       - database:/var/lib/mysql
       #- ./.docker/data:/docker-entrypoint-initdb.d
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=myproject
+      - MYSQL_DATABASE=$DATABASE_NAME
 
 volumes:
   database:
