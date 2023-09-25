@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # create new project
-if [ ! -d "./src" ]; then
+if [ ! -d "./public" ]; then
   . /home/install.sh
 fi
 
