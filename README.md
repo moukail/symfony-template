@@ -1,3 +1,10 @@
+### Debug Symfony Command in Docker container
+````
+export PHP_IDE_CONFIG="serverName=web"
+export XDEBUG_CONFIG="remote_host=172.17.0.1 idekey=14722"
+symfony console app-update-saudi-livestream
+````
+
 ### Vagrant
 ```
 vagrant up --provision
