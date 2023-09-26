@@ -33,6 +33,14 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=$DATABASE_NAME
 
+  proxy:
+    image: caddy:2.6-alpine
+    container_name: reverse_proxy
+    ports:
+      - 80:80
+    volumes:
+      - ./.docker/Caddyfile:/etc/caddy/Caddyfile
+
 volumes:
   database:
     driver: local
@@ -42,4 +50,3 @@ volumes:
 networks:
   default:
     name: moukail
-    external: true
