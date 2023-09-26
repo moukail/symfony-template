@@ -1,0 +1,23 @@
+laminas.dev.local:80 {
+  reverse_proxy laminas-web:8000
+}
+
+symfony.dev.local:80 {
+  reverse_proxy rbac-web:8000
+}
+
+tv-web.dev.local:80 {
+  reverse_proxy tv-web:8000
+}
+
+basic.dev.local:80 {
+  reverse_proxy basic-backend:8000
+}
+
+intranet.dev.local:80 {
+  reverse_proxy intranet-web:8000
+}
+
+dev.intranet.jcid.nl:80 {
+  reverse_proxy intranet-web:8000
+}
