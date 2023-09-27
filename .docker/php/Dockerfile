@@ -52,6 +52,8 @@ RUN echo | npm install -g npm@10.1.0
 
 WORKDIR /var/www
 
+RUN git config --global --add safe.directory /var/www
+
 ADD install.sh /home/
 RUN chmod +x /home/install.sh
 
