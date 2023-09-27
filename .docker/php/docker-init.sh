@@ -20,10 +20,12 @@ echo "8.2" > .php-version
 #symfony self:version
 #symfony self:cleanup
 
+composer validate
+
 echo "-----------------------------------------------------------------------------------------------------------------"
 echo "-                                                composer                                                       -"
 echo "-----------------------------------------------------------------------------------------------------------------"
-symfony composer update --no-interaction #--no-plugins --no-scripts
+symfony composer install --no-interaction #--no-plugins --no-scripts
 symfony composer -n check-platform-reqs
 
 echo "-------------------------------------------------------------------"
