@@ -20,6 +20,7 @@ echo "8.2" > .php-version
 #symfony self:version
 #symfony self:cleanup
 
+composer remove --unused
 composer validate
 
 echo "-----------------------------------------------------------------------------------------------------------------"
