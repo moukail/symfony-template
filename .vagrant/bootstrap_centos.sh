@@ -56,8 +56,6 @@ xdebug.client_host=10.0.2.2
 xdebug.client_port=9003
 EOF
 
-php -v
-
 # Composer
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
 
