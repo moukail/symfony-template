@@ -1,12 +1,60 @@
-### Debug Symfony Command in Docker container
-````
-export PHP_IDE_CONFIG="serverName=web"
-export XDEBUG_CONFIG="remote_host=172.17.0.1 idekey=14722"
-symfony console app-update-saudi-livestream
-````
+# Symfony
+```bash
+echo | symfony server:ca:install
+symfony serve --p12=/var/www/certs/localhost.p12
 
-### Vagrant
+symfony self:update --no-interaction
+symfony self:version
+symfony self:cleanup
 ```
+
+# Composer packages
+```bash
+symfony composer require --no-interaction symfony/amqp-pack ramsey/uuid-doctrine symfony/mailgun-mailer symfony/mercure-bundle
+symfony composer require --no-interaction -W sensio/framework-extra-bundle
+symfony composer require --no-interaction nelmio/cors-bundle gesdinet/jwt-refresh-token-bundle sentry/sentry-symfony
+symfony composer require --no-interaction moukail/mailgun-mail-status-bundle moukail/password-reset-mail-bundle moukail/verification-mail-bundle
+symfony composer require --no-interaction dompdf/dompdf nyholm/psr7
+symfony composer require --no-interaction league/flysystem-aws-s3-v3:2.0.* league/flysystem-bundle #league/flysystem-cached-adapter
+#symfony/messenger
+#twig/extra-bundle
+
+#dev
+symfony composer require --dev codeception/codeception codeception/specify codeception/verify ericmartel/codeception-email-mailhog
+symfony composer require --dev league/factory-muffin league/factory-muffin-faker
+symfony composer require --dev flow/jsonpath phpbench/phpbench
+symfony composer require --dev vimeo/psalm
+```
+
+### Configuration
+```bash
+symfony composer config extra.symfony.allow-contrib true
+symfony composer config allow-plugins.symfony/runtime true
+```
+
+# Doctrine
+```bash
+symfony console doctrine:database:drop --if-exists --force
+symfony console doctrine:database:create --if-not-exists
+symfony console doctrine:migrations:up-to-date
+symfony console doctrine:migrations:migrate --allow-no-migration --no-interaction
+symfony console doctrine:schema:update --force
+symfony console doctrine:schema:validate
+symfony console doctrine:fixtures:load --no-interaction
+```
+
+# Nodejs
+```bash
+npm audit fix
+npm install --global browser-sync
+npm run dev
+symfony run -d npm run watch
+```
+
+# Vagrant
+```
+sudo apt-get install virtualbox
+sudo apt install vagrant
 vagrant up --provision
 vagrant up
 vagrant reload
@@ -36,8 +84,47 @@ The error output from the command was:
 /sbin/mount.vboxsf: mounting failed with the error: No such device
 ```
 
-https://theboroer.github.io/localtunnel-www/
+# Xdebug
+## Install with Dockerfile
+Xdebug =<3.1 support PHP 7.4
+```bash
+RUN pecl install xdebug-3.1.6 && docker-php-ext-enable xdebug
+```
 
+## Using Xdebug in CLI
+To check if xdebug is working add a breakpoint in `./bin/console`.
+
+### in Docker container with PHPStorm
+#### Option 1
+Click on Start listening For PHP Debug Connections button
+```bash
+export PHP_IDE_CONFIG="serverName=symfony-web"
+export XDEBUG_CONFIG="remote_host=host.docker.internal idekey=PHPSTORM"
+symfony console
+````
+#### Option 2
+Use idekey
+```bash
+export PHP_IDE_CONFIG="serverName=symfony-web"
+export XDEBUG_CONFIG="remote_host=172.17.0.1 idekey=13233"
+symfony console
+```
+
+### in Vagrant with PHPStorm
+Click on Start listening For PHP Debug Connections button
+```bash
+export PHP_IDE_CONFIG="serverName=symfony-web"
+symfony console
+```
+
+# TLS
+```bash
+mkdir -p config/secrets
+openssl genpkey -out config/secrets/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096
+openssl pkey -in config/secrets/private.pem -out config/secrets/public.pem -pubout
+```
+
+# ngrok
 ### install ngrok
 https://ngrok.com/docs/getting-started/
 https://dashboard.ngrok.com/get-started/setup
@@ -48,60 +135,4 @@ ngrok http --domain=noted-shad-flexible.ngrok-free.app 8000
 ngrok tunnel --label edge=edghts_2W8TyJQmPfk5xw5pp6mxcPcENN5 http://localhost:8000
 ```
 
-### Dockerfile
-```bash
-# Xdebug =<3.1 support PHP 7.4
-#RUN pecl install xdebug-3.1.6 && docker-php-ext-enable xdebug
-```
-
-```bash
-symfony/amqp-pack ramsey/uuid-doctrine symfony/mailgun-mailer symfony/mercure-bundle
-symfony composer require --no-interaction -W sensio/framework-extra-bundle
-symfony composer require --no-interaction nelmio/cors-bundle gesdinet/jwt-refresh-token-bundle sentry/sentry-symfony
-symfony composer require --no-interaction moukail/mailgun-mail-status-bundle moukail/password-reset-mail-bundle moukail/verification-mail-bundle
-symfony composer require --no-interaction dompdf/dompdf nyholm/psr7
-symfony composer require --no-interaction league/flysystem-aws-s3-v3:2.0.* league/flysystem-bundle #league/flysystem-cached-adapter
-#symfony/messenger
-#twig/extra-bundle
-
-#symfony composer require --dev codeception/codeception codeception/specify codeception/verify ericmartel/codeception-email-mailhog
-#symfony composer require --dev league/factory-muffin league/factory-muffin-faker
-#symfony composer require --dev flow/jsonpath phpbench/phpbench
-#symfony composer require --dev vimeo/psalm
-
-#mkdir -p config/secrets
-#openssl genpkey -out config/secrets/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096
-#openssl pkey -in config/secrets/private.pem -out config/secrets/public.pem -pubout
-
-
-#symfony composer config extra.symfony.allow-contrib true
-#symfony composer config allow-plugins.symfony/runtime true
-```
-#echo | symfony server:ca:install
-#symfony serve --p12=/var/www/certs/localhost.p12
-
-#symfony --no-interaction self:update
-#symfony self:version
-#symfony self:cleanup
-
-#symfony console doctrine:database:drop --if-exists --force
-#symfony console doctrine:database:create --if-not-exists
-#symfony console doctrine:migrations:up-to-date
-#symfony console doctrine:migrations:migrate --allow-no-migration --no-interaction
-#symfony console doctrine:schema:update --force
-#symfony console doctrine:schema:validate
-#symfony console doctrine:fixtures:load --no-interaction
-#nohup symfony console thruway:router:start >/dev/null 2>&1 &
-
-#export PHP_IDE_CONFIG="serverName=your-server-name-configured-in-php-storm"
-#export XDEBUG_CONFIG="remote_host=host.docker.internal idekey=PHPSTORM"
-#export XDEBUG_SESSION_START=10219
-
-#symfony proxy:start
-#symfony proxy:domain:attach my-domain
-#HTTPS_PROXY=http://127.0.0.1:7080 curl https://my-domain.wip
-
-#npm audit fix
-#npm install --global browser-sync
-#npm run dev
-#symfony run -d npm run watch
+https://theboroer.github.io/localtunnel-www/

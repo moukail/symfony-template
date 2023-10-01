@@ -62,15 +62,16 @@ echo "-------------------------------------------------------------------"
 echo "-------------------------------------------------------------------"
 echo "-                        website is ready                         -"
 echo "-------------------------------------------------------------------"
-
 chmod -R a+rw ./
 symfony local:php:list
 symfony local:php:refresh
-symfony check:requirements
-symfony check:security
+symfony local:check:requirements
+symfony local:check:security
 symfony console about
 
 symfony serve
+symfony local:server:status
+symfony local:server:list
 
 echo "-------------------------------------------------------------------"
 echo "-                        testing                                  -"
