@@ -124,6 +124,12 @@ openssl genpkey -out config/secrets/private.pem -aes256 -algorithm rsa -pkeyopt 
 openssl pkey -in config/secrets/private.pem -out config/secrets/public.pem -pubout
 ```
 
+```bash
+mkcert -install
+mkcert -key-file /var/www/certs/symfony_key.pem -cert-file /var/www/certs/symfony_cert.pem "app.localhost" "*.app.localhost" "domain.local" "*.domain.local"
+openssl pkcs12 -export -out certificate.p12 -inkey symfony_key.pem -in symfony_cert.pem
+```
+
 # ngrok
 ### install ngrok
 https://ngrok.com/docs/getting-started/
