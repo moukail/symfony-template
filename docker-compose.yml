@@ -28,6 +28,7 @@ services:
   database:
     image: mysql:8.1
     container_name: $DATABASE_HOST
+    restart: unless-stopped
     ports:
       - $DATABASE_PORT
     expose:
