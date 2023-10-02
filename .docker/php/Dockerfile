@@ -5,8 +5,10 @@ ENV TIMEZONE 'Europe/Amsterdam'
 
 RUN apk --update --no-cache add bash wget gcc g++ make autoconf linux-headers openssh git rsync
 RUN docker-php-ext-install -j$(nproc) pdo_mysql
-
 RUN docker-php-ext-enable opcache
+
+# ext-intl
+#RUN apk --update --no-cache add icu-dev && docker-php-ext-install -j$(nproc) intl
 
 # For redis
 #RUN pecl install redis && docker-php-ext-enable redis
