@@ -33,7 +33,10 @@ symfony composer require --dev league/factory-muffin league/factory-muffin-faker
 
 #### 2. Setup
 ```bash
-codecept bootstrap
+codecept list
+codecept completion
+codecept config:validate
+codecept bootstrap --namespace App\\Tests
 ```
 
 Next steps:
@@ -53,6 +56,7 @@ codecept generate:suite api
 
 #### 4. Create Test
 ```bash
+codecept generate:cest unit User
 codecept generate:cest api User
 codecept generate:cest acceptance Login
 ```
