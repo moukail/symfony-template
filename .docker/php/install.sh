@@ -32,7 +32,7 @@ codeception/specify codeception/verify league/factory-muffin league/factory-muff
 echo "-------------------------------------------------------------------"
 echo "-                   Init Codeception                              -"
 echo "-------------------------------------------------------------------"
-codecept bootstrap
+codecept bootstrap --namespace App\\Tests
 codecept generate:suite api
 
 echo "-------------------------------------------------------------------"
