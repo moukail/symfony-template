@@ -9,19 +9,63 @@ symfony self:cleanup
 ```
 
 # Composer packages
+### API
 ```bash
-symfony composer require --no-interaction symfony/amqp-pack ramsey/uuid-doctrine symfony/mailgun-mailer symfony/mercure-bundle
-symfony composer require --no-interaction -W sensio/framework-extra-bundle
-symfony composer require --no-interaction nelmio/cors-bundle gesdinet/jwt-refresh-token-bundle sentry/sentry-symfony
-symfony composer require --no-interaction moukail/mailgun-mail-status-bundle moukail/password-reset-mail-bundle moukail/verification-mail-bundle
-symfony composer require --no-interaction dompdf/dompdf nyholm/psr7
-symfony composer require --no-interaction league/flysystem-aws-s3-v3:2.0.* league/flysystem-bundle #league/flysystem-cached-adapter
-#symfony/messenger
-#twig/extra-bundle
+symfony composer require --no-interaction nelmio/cors-bundle gesdinet/jwt-refresh-token-bundle
+```
 
-#dev
+### Mailgun
+```bash
+symfony composer require --no-interaction symfony/mailgun-mailer moukail/mailgun-mail-status-bundle moukail/password-reset-mail-bundle moukail/verification-mail-bundle
+```
+
+### flysystem AWS S3
+```bash
+symfony composer require --no-interaction league/flysystem-aws-s3-v3:2.0.* league/flysystem-bundle #league/flysystem-cached-adapter
+```
+
+### Codeception
+#### 1.Install
+```bash
 symfony composer require --dev codeception/codeception codeception/specify codeception/verify ericmartel/codeception-email-mailhog
 symfony composer require --dev league/factory-muffin league/factory-muffin-faker
+```
+
+#### 2. Setup
+```bash
+codecept bootstrap
+```
+
+Next steps:
+1. Edit tests/acceptance.suite.yml to set url of your application. Change PhpBrowser to WebDriver to enable browser testing
+2. Edit tests/functional.suite.yml to enable a framework module. Remove this file if you don't use a framework
+3. Create your first acceptance tests using codecept g:cest acceptance First
+4. Write first test in tests/acceptance/FirstCest.php
+5. Run tests using: codecept run
+6. Edit Api.suite.yml to enable modules for this suite
+7. Create first test with generate:cest testName ( or test|cept) command
+8. Run tests of this suite with codecept run Api command
+
+#### 3. Create suite
+```bash
+codecept generate:suite api
+```
+
+#### 4. Create Test
+```bash
+codecept generate:cest api User
+codecept generate:cest acceptance Login
+```
+
+###
+```bash
+symfony composer require --no-interaction symfony/amqp-pack ramsey/uuid-doctrine symfony/mercure-bundle
+symfony composer require --no-interaction -W sensio/framework-extra-bundle
+symfony composer require --no-interaction dompdf/dompdf nyholm/psr7
+#symfony/messenger
+#twig/extra-bundle
+# sentry/sentry-symfony
+#dev
 symfony composer require --dev flow/jsonpath phpbench/phpbench
 symfony composer require --dev vimeo/psalm
 ```

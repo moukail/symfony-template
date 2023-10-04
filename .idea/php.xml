@@ -13,6 +13,76 @@
     <option name="highlightLevel" value="WARNING" />
     <option name="transferred" value="true" />
   </component>
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/web/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/web/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/web/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/web/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/web/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/web/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/web/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/web/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/web/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/web/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/web/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/web/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/web/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/web/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/web/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/web/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/web/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/debug-bundle" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/polyfill-php81" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/web/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/web/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/web/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/web/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/web/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/web/vendor/twig/extra-bundle" />
+      <path value="$PROJECT_DIR$/web/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/web/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/web/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/web/vendor/composer" />
+    </include_path>
+  </component>
   <component name="PhpInterpreters">
     <interpreters>
       <interpreter id="55fddd85-c31f-4d59-abf1-e3d712f2378c" name="web" home="docker-compose://DATA" auto="false" debugger_id="php.debugger.XDebug">

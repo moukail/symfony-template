@@ -26,7 +26,7 @@ RUN pecl install xdebug && docker-php-ext-enable xdebug
 
 # For Xdebug 3
 RUN echo $'zend_extension=xdebug.so \n\
-xdebug.mode=debug \n\
+xdebug.mode=debug,coverage \n\
 xdebug.idekey=PHPSTORM \n\
 xdebug.start_with_request=trigger \n\
 xdebug.client_host=host.docker.internal'\

@@ -82,7 +82,7 @@ codecept run --steps --debug -vvv --coverage --coverage-xml --coverage-html
 echo "-------------------------------------------------------------------"
 echo "-                        yarn watch                               -"
 echo "-------------------------------------------------------------------"
-npm install --non-interactive
+yarn install
 yarn watch
 
 tail -f /dev/null
