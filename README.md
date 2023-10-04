@@ -1,3 +1,10 @@
+# Composer
+```bash
+composer audit
+composer completion
+composer show phpunit/phpunit
+```
+
 # Symfony
 ```bash
 echo | symfony server:ca:install
@@ -11,7 +18,7 @@ symfony self:cleanup
 # Composer packages
 ### API
 ```bash
-symfony composer require --no-interaction nelmio/cors-bundle gesdinet/jwt-refresh-token-bundle
+symfony composer require --no-interaction symfony/validator symfony/serializer symfony/property-access nelmio/cors-bundle gesdinet/jwt-refresh-token-bundle
 ```
 
 ### Mailgun
