@@ -21,6 +21,30 @@ symfony self:cleanup
 symfony composer require --no-interaction symfony/validator symfony/serializer symfony/property-access nelmio/cors-bundle gesdinet/jwt-refresh-token-bundle
 ```
 
+### UUID
+```bash
+composer require symfony/uid
+```
+
+```
+# config/services.yaml
+services:
+    Symfony\Component\Uid\Command\GenerateUlidCommand: ~
+    Symfony\Component\Uid\Command\GenerateUuidCommand: ~
+    Symfony\Component\Uid\Command\InspectUlidCommand: ~
+    Symfony\Component\Uid\Command\InspectUuidCommand: ~
+```
+
+```bash
+symfony console uuid:generate --random-based
+symfony console uuid:generate --time-based=now --node=fb3502dc-137e-4849-8886-ac90d07f64a7
+symfony console uuid:generate --count=2 --format=base58
+symfony console ulid:generate
+symfony console ulid:generate --time="2021-02-02 14:00:00"
+symfony console ulid:generate --count=2 --format=rfc4122
+symfony console uuid:inspect d0a3a023-f515-4fe0-915c-575e63693998
+```
+
 ### Mailgun
 ```bash
 symfony composer require --no-interaction symfony/mailgun-mailer moukail/mailgun-mail-status-bundle moukail/password-reset-mail-bundle moukail/verification-mail-bundle
@@ -70,7 +94,7 @@ codecept generate:cest acceptance Login
 
 ###
 ```bash
-symfony composer require --no-interaction symfony/amqp-pack ramsey/uuid-doctrine symfony/mercure-bundle
+symfony composer require --no-interaction symfony/amqp-pack symfony/mercure-bundle
 symfony composer require --no-interaction -W sensio/framework-extra-bundle
 symfony composer require --no-interaction dompdf/dompdf nyholm/psr7
 #symfony/messenger
