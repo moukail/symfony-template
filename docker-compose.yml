@@ -12,7 +12,9 @@ services:
       - ./web:/var/www
       #- vendor:/var/www/vendor
     env_file:
+      - ./web/.env
       - ./.env
+      - ./web/.env.local
     extra_hosts:
       - "host.docker.internal:host-gateway"
     depends_on:
@@ -21,8 +23,8 @@ services:
       - traefik_net
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.symfony.rule=Host(`symfony.app.localhost`)"
-      - "traefik.http.routers.symfony.tls=true"
+      - "traefik.http.routers.$HOST_NAME.rule=Host(`$HOST_NAME.app.localhost`)"
+      - "traefik.http.routers.$HOST_NAME.tls=true"
     tty: true
 
   database:
