@@ -17,7 +17,13 @@ jobs:
           composer install --no-interaction --no-dev --optimize-autoloader --prefer-dist --no-scripts --no-suggest
           composer dump-env prod
           composer dump-autoload --optimize
-
+          
+          # Linting Service Definitions
+          php bin/console lint:container
+          
+          # PHP Insights
+          ./vendor/bin/phpinsights --no-interaction --min-quality=80 --min-complexity=90 --min-architecture=75 --min-style=95
+          
           yarn install --silent --no-progress --non-interactive --network-timeout 1000000
           yarn encore production
 

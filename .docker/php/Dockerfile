@@ -42,6 +42,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ 
 # Symfony CLI
 RUN wget https://get.symfony.com/cli/installer -O - | bash && mv /root/.symfony5/bin/symfony /usr/bin/symfony
 
+# PHP Copy/Paste Detector
+RUN wget https://phar.phpunit.de/phpcpd.phar -O /usr/bin/phpcpd && chmod a+x /usr/bin/phpcpd
+
 ### Codeception
 RUN wget http://codeception.com/codecept.phar -O /usr/bin/codecept && chmod a+x /usr/bin/codecept
 #source <(codecept _completion --generate-hook --program codecept)

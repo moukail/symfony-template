@@ -12,9 +12,9 @@ services:
       - ./web:/var/www
       #- vendor:/var/www/vendor
     env_file:
-      - ./web/.env
+      #- ./web/.env
       - ./.env
-      - ./web/.env.local
+      #- ./web/.env.local
     extra_hosts:
       - "host.docker.internal:host-gateway"
     depends_on:
