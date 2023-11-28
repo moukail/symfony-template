@@ -15,8 +15,8 @@ cd ./my_project
 cp .env .env.local
 
 symfony composer require php:^8.2.0
-symfony composer require twig symfony/webpack-encore-bundle
-symfony composer require --no-interaction doctrine/orm doctrine/doctrine-migrations-bundle ramsey/uuid-doctrine
+symfony composer require twig symfony/webpack-encore-bundle symfony/property-info
+symfony composer require --no-interaction doctrine/orm doctrine/doctrine-migrations-bundle
 
 echo "-------------------------------------------------------------------"
 echo "-               require dev packages                              -"
