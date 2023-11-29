@@ -68,7 +68,7 @@ yarn config set initScope --json '"moukail"'
 
 yarn init -2 -p --name moukail/elasticsearch-demo
 yarn set version stable
-yarn add --dev bootstrap @symfony/webpack-encore @babel/core @babel/preset-env @popperjs/core webpack webpack-cli
+yarn add --dev bootstrap @symfony/webpack-encore @babel/core @babel/preset-env @popperjs/core webpack webpack-cli webpack-notifier
 
 npx --yes npm-add-script -k "watch" -v "encore dev --watch" --force --no-interaction
 
