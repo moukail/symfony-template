@@ -64,7 +64,13 @@ echo "-------------------------------------------------------------------"
 echo "-                          Init Yarn                              -"
 echo "-------------------------------------------------------------------"
 corepack enable
-yarn init -2
+yarn config set initScope --json '"moukail"'
+
+yarn init -2 -p --name moukail/elasticsearch-demo
+yarn set version stable
+yarn add --dev bootstrap @symfony/webpack-encore @babel/core @babel/preset-env @popperjs/core webpack webpack-cli
+
+npx --yes npm-add-script -k "watch" -v "encore dev --watch" --force --no-interaction
 
 echo "-------------------------------------------------------------------"
 echo "-                          Ready                                  -"
