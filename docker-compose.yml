@@ -1,4 +1,3 @@
-version: '3.9'
 services:
   web:
     container_name: $HOST_NAME
@@ -28,7 +27,7 @@ services:
     tty: true
 
   database:
-    image: mysql:8.4
+    image: mysql:9.1
     container_name: $DATABASE_HOST
     restart: unless-stopped
     ports:

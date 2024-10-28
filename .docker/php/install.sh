@@ -79,6 +79,5 @@ rm -rf .git
 cd ..
 
 chmod -R a+rw my_project
-
 rsync -a my_project/ ./
 rm -rf my_project

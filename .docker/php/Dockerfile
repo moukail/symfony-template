@@ -1,5 +1,5 @@
-FROM node:lts-alpine3.19 AS node
-FROM php:8.3-fpm-alpine3.19
+FROM node:lts-alpine3.20 AS node
+FROM php:8.3-fpm-alpine3.20
 
 ENV TIMEZONE 'Europe/Amsterdam'
 

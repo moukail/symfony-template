@@ -1,6 +1,6 @@
 ---
 - name: prepare site
-  hosts: vultr
+  hosts: web
   become: true
 
   vars:
